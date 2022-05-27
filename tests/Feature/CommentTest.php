@@ -18,6 +18,7 @@ class CommentTest extends TestCase
      */
     public function testCreateComment()
     {
+        /** @var User */
         $user = User::factory()->create();
         $test_post = [
             'title' => 'My test post with comment',
