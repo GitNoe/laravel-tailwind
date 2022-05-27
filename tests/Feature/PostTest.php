@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Post;
+// use App\Models\Comment;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostTest extends TestCase
@@ -31,6 +32,7 @@ class PostTest extends TestCase
      */
     public function testCreatePost()
     {
+        /** @var User */
         $user = User::factory()->create();
         $title = 'My test post';
         $response = $this->actingAs($user)->post('/admin/posts', [
@@ -77,6 +79,7 @@ class PostTest extends TestCase
      */
     public function testEditPost()
     {
+        /** @var User */
         $user = User::factory()->create();
         $test_post = [
             'title' => 'test edit post',
@@ -109,6 +112,7 @@ class PostTest extends TestCase
      */
     public function testDeletePost()
     {
+        /** @var User */
         $user = User::factory()->create();
         $test_post = [
             'title' => 'test post delete',
@@ -130,6 +134,7 @@ class PostTest extends TestCase
 
     public function testEditPostStaffMember()
     {
+        /** @var User */
         $user_admin = User::factory()->create();
         $test_post = [
             'title' => 'test post admin',
@@ -160,6 +165,7 @@ class PostTest extends TestCase
 
     public function testDeletePostStaffMember()
     {
+        /** @var User */
         $user_admin = User::factory()->create();
         $test_post = [
             'title' => 'test post delete admin',
